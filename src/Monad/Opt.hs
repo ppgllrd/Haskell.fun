@@ -17,7 +17,7 @@ instance Functor Opt where
 instance Applicative Opt where
   pure x = OK x
   OK f  <*> OK x  = OK (f x)
-  OK f  <*> Err s = Err s
+  _     <*> Err s = Err s
   Err s <*> _     = Err s
 
 instance Monad Opt where
