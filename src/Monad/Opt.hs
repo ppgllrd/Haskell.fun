@@ -15,7 +15,7 @@ instance Functor Opt where
   fmap f (Err s) = Err s
 
 instance Applicative Opt where
-  pure x = OK x
+  pure = OK
   OK f  <*> OK x  = OK (f x)
   _     <*> Err s = Err s
   Err s <*> _     = Err s

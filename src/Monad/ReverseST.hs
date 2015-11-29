@@ -32,7 +32,7 @@ get :: RST s s
 get = RST $ \s -> (s, s)
 
 set :: s -> RST s ()
-set s = RST $ \_ -> (s, ())
+set s = RST $ const (s, ())
 
 run :: s -> RST s a -> a
 run s (RST st) = let (_, x) = st s in x
